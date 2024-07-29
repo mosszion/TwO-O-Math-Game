@@ -25,9 +25,3 @@ class MathQuestion
 
 end
 
-question1 = MathQuestion.new
-puts question1.ask
-puts question1.num1
-puts question1.num2
-puts question1.correct_answer
-puts question1.check_answer(5)

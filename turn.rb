@@ -16,16 +16,12 @@ class Turn
       answer = gets.chomp().to_i
 
       if @question.check_answer(answer)
-        puts "#{@player}: Yes! You are correct."
+        puts "#{@player.name}: Yes! You are correct."
       elsif 
-        puts "#{@player}: Seriously? No!"
+        puts "#{@player.name}: Seriously? No!"
         @player.lose_life
       end
     end
 
 end
 
-trialTurn = Turn.new("Mossi")
-
-puts trialTurn.play
-puts trialTurn.play
