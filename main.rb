@@ -33,17 +33,19 @@ class MainGame
    def play_turn 
       turn = Turn.new(@current_player)
       turn.play
+      puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3!"
    end
 
    # define a method to switch a player after attempt
 
    def switch_player
+      puts "------New Turn--------"
       @current_player = @current_player == @player1 ? @player2 : @player1
    end
 
    # Method for game over 
 
-   def game_over
+   def game_over?
       !@player1.alive? || !@player2.alive?
    end
    # Method for announcing the winner
