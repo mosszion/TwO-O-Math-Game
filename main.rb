@@ -18,6 +18,17 @@ class MainGame
         @player2 = Player.new("Player 2")
         @current_player = @player1
     end
+
+
+###Define the working logic of the MainGame class
+
+ def start
+   until game_over?
+      play_turn
+      switch_player
+   end
+   announce_winner
+ end
 #define a method to check whose turn it is 
    def play_turn 
       turn = Turn.new(@current_player)
@@ -48,5 +59,5 @@ class MainGame
 
 end
 
-one = MainGame.new
-puts one.announce_winner
+game = MainGame.new
+game.start
