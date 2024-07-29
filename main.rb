@@ -8,3 +8,45 @@
 # 5) Players will contiue playing untill one player losses all three lives 
 # 6) Once reached to all loss stage , it will print the result and winner of the game
 
+# import the file player to get the Player class
+require_relative "player"
+require_relative"turn"
+
+class MainGame
+    def initialize
+        @player1 = Player.new("Player 1")
+        @player2 = Player.new("Player 2")
+        @current_player = @player1
+    end
+#define a method to check whose turn it is 
+   def play_turn 
+      turn = Turn.new(@current_player)
+      turn.play
+   end
+
+   # define a method to switch a player after attempt
+
+   def switch_player
+      @current_player = @current_player == @player1 ? @player2 : @player1
+   end
+
+   # Method for game over 
+
+   def game_over
+      !@player1.alive? || !@player2.alive?
+   end
+   # Method for announcing the winner
+   def announce_winner
+      if @player1.alive?
+         puts "#{@player1.name} wins with the score of #{@player1.lives}/3!"
+         elsif @player2.alive?
+            puts "#{@player2.name} wins with the score of #{@player2.lives}/3!" 
+         end
+         puts "---------------GAME OVER------------------"
+         puts "GOOD BYE!"
+   end
+
+end
+
+one = MainGame.new
+puts one.announce_winner
