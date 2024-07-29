@@ -17,3 +17,10 @@ class Player
       @lives > 0 
   end
 end
+
+player1 = Player.new("Player 1")
+puts player1.name
+puts player1.lose_life
+puts player1.lose_life
+puts player1.lose_life
+puts player1.alive?
