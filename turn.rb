@@ -6,6 +6,7 @@
 #It will also call the lose_life if the answer is wrong, this will deduct one life from the lives of a player
 require_relative "question"
 
+
 class Turn 
     def initialize(player)
       @player = player
@@ -13,12 +14,13 @@ class Turn
     end
     def play
       puts @question.ask
-      answer = gets.chomp().to_i
+      answer = gets.chomp.to_i
 
       if @question.check_answer(answer)
         puts "#{@player.name}: Yes! You are correct."
-      elsif 
+      else
         puts "#{@player.name}: Seriously? No!"
+
         @player.lose_life
       end
     end
